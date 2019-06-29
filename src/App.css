@@ -1,33 +1,37 @@
-.App {
+
+.repo-search-page {
   text-align: center;
+  height: 100vh;
+  background-color: #E91E63;
+  color: #FFFFFF;
+}
+.repo-search-bar {
+  width: 30em;
+  height: 5em;
+  background-color: #FFFFFF;
+}
+.repo-search-bar input{
+  border: none;
+  resize: unset;
+  font-family: inherit;
+  font-size: 1.125em;
+  width: 80%;
+}
+.repo-search-bar .search-icon {
+  height: 1.5em;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.issues-wrapper {
+  display: block;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.an-issue {
 }
