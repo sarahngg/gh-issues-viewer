@@ -27,7 +27,7 @@ class IssueDisplayPage extends Component {
     })
 
     return(
-    <div className="center issues-wrapper">
+    <div className="issues-container">
       <h1>IssueDisplayPage</h1>
       {issueList}
       </div>

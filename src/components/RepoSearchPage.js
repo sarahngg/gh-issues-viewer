@@ -8,7 +8,7 @@ class RepoSearchPage extends Component {
   }
   render() {
     return(
-    <div className="center">
+    <div className="repo-search-page-content">
       <h1>GitHub Issue Explorer</h1>
       <RepoSearchBar/>
       </div>

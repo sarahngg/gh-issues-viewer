@@ -14,12 +14,12 @@ import '../App.css';
 class App extends Component { 
   constructor(props) {
     super(props);
-    this.state = { linkEntered: true };
+    this.state = { linkEntered: false };
   }
   render () {
     if (this.state.linkEntered === false) {
       return (
-      <div className="repo-search-page">
+      <div className="repo-search-page-container">
         <RepoSearchPage/>
       </div>
       );

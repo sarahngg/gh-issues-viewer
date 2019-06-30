@@ -18,15 +18,16 @@
   }
    render() {
      return <div className="repo-search-bar">
-       <form onSubmit = {this.handleSubmit}>
+  
        <img src = {icon} className="search-icon" alt="Search icon" />
        <input 
           type='text' 
           onChange={this.handleFormChange} 
+          onSubmit = {this.handleSubmit}
           value={this.state.repoLink}
           className="gitHubLink" 
           placeholder="Paste a link to a GitHub repo!"/>
-       </form>
+    
        </div>
    }
  }

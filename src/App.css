@@ -1,37 +1,59 @@
 
-.repo-search-page {
+.repo-search-page-container {
   text-align: center;
   height: 100vh;
+  width: 100vw;
   background-color: #E91E63;
   color: #FFFFFF;
+  display: flex;
+  align-items: center; 
+  
+}
+.repo-search-page-content {
+  margin: auto;
 }
 .repo-search-bar {
-  width: 30em;
-  height: 5em;
+  padding: 0.5em;
+  height: 2em;
   background-color: #FFFFFF;
+  display: flex;
+  align-items: center; 
+  margin: auto;
 }
 .repo-search-bar input{
   border: none;
-  resize: unset;
   font-family: inherit;
   font-size: 1.125em;
-  width: 80%;
+  margin: auto;
+  margin-left: 0.5em;
+  flex-basis: 80%;
 }
-.repo-search-bar .search-icon {
-  height: 1.5em;
-}
-
-.center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.search-icon {
+  height: 1.25em;
+  flex-basis: 1.25em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  fill: #CFD8DC;
 }
 
-.issues-wrapper {
-  display: block;
+.issues-container {
+  --auto-grid-min-size: 16rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  grid-gap: 1rem;
 }
-.an-issue {
+
+.issue-wrapper {
+  padding: 5rem 1rem;
+  font-size: 1.2rem;
+  background: #eb4d4b;
+  color: #ffffff;
+}
+.issue-title {
+  color: bisque;
+}
+
+.issue-details {
+  color: #000000;
+
 }
