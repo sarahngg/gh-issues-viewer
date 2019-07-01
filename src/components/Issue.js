@@ -6,8 +6,9 @@ class Issue extends Component {
     const { key, title, body, isPullRequest, labels } = this.props;
     return ( 
     <div className="issue-wrapper">
-      <div className="issue-title"><h2>{title}</h2></div>
-      <div className="issue-details">{body} 
+      <div className="issue-title">{title}</div>
+      <div className="issue-details">
+        <div className="issue-body-text">{body}</div> 
       <IssueLabels labels={labels}/>
       </div>
     </div>

@@ -14,7 +14,7 @@
   }
   handleSubmit =(e)=> {
       e.preventDefault(); 
-      console.log("Form submitted!", this.state.repoLink);
+      console.log("Repo link submitted", this.state.repoLink);
   }
    render() {
      return <div className="repo-search-bar">

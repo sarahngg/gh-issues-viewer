@@ -14,7 +14,7 @@ import '../App.css';
 class App extends Component { 
   constructor(props) {
     super(props);
-    this.state = { linkEntered: false };
+    this.state = { linkEntered: true };
   }
   render () {
     if (this.state.linkEntered === false) {
@@ -25,7 +25,7 @@ class App extends Component {
       );
     } else {
       return (
-      <div className="issue-display-page">
+      <div className="issue-display-page-container">
         <IssueDisplayPage/>
       </div>
       );
