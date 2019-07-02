@@ -1,4 +1,6 @@
  import React, { Component } from 'react';
+ import { connect } from 'react-redux';
+ import { submitRepoLink } from '../actions';
  import icon from '../_assets/icons/search.svg';
  import '../App.css';
  
@@ -11,24 +13,32 @@
       this.setState({
         repoLink: e.target.value
       });
+      // console.log('handleFormChange', this.state.repoLink);
   }
   handleSubmit =(e)=> {
-      e.preventDefault(); 
-      console.log("Repo link submitted", this.state.repoLink);
+    e.preventDefault(); 
+    this.props.submitRepoLink(this.state.repoLink);
+    // console.log('Repo link submitted', this.state.repoLink);
   }
    render() {
-     return <div className="repo-search-bar">
+     return <div className='repo-search-bar'>
   
-       <img src = {icon} className="search-icon" alt="Search icon" />
+       <img src = {icon} className='search-icon' alt='Search icon' />
+       <form  
+          onSubmit = {this.handleSubmit}>
        <input 
           type='text' 
-          onChange={this.handleFormChange} 
-          onSubmit = {this.handleSubmit}
+          onChange={this.handleFormChange}
           value={this.state.repoLink}
-          className="gitHubLink" 
-          placeholder="Paste a link to a GitHub repo!"/>
+          className='gitHubLink' 
+          placeholder='Paste a link to a GitHub repo!'/>
+          </form>
     
        </div>
    }
  }
- export default RepoSearchBar;
+
+const mapStateToProps = state => ({
+  repoLink: state.repoLink,
+});
+ export default connect(mapStateToProps, {submitRepoLink})(RepoSearchBar);

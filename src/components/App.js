@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import RepoSearchPage from './RepoSearchPage';
 import IssueDisplayPage from './IssueDisplayPage';
-import '../App.css';
 
 // const App = () => { 
 //   return (
@@ -12,12 +12,9 @@ import '../App.css';
 // }
 
 class App extends Component { 
-  constructor(props) {
-    super(props);
-    this.state = { linkEntered: true };
-  }
+  
   render () {
-    if (this.state.linkEntered === false) {
+    if (this.props.repoLink === '') {
       return (
       <div className="repo-search-page-container">
         <RepoSearchPage/>
@@ -32,4 +29,7 @@ class App extends Component {
     }
   }
 }
-export default App;
+const mapStateToProps = state => ({
+  repoLink: state.repoLink,
+});
+export default connect(mapStateToProps)(App);

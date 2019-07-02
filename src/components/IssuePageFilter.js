@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import closeIcon from '../_assets/icons/close.svg';
+import { connect } from 'react-redux';
+import { closeIssueViewer } from '../actions';
 
 class IssuePageFilter extends Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class IssuePageFilter extends Component {
   }
   handleCloseViewer = (e) => {
     console.log(e.target.getAttribute('id'));
+    this.props.closeIssueViewer();
   }
 
   handleClick = (e) => {
@@ -90,5 +93,5 @@ class IssuePageFilter extends Component {
       )
   }
 }
+export default connect(null, {closeIssueViewer})(IssuePageFilter);
 
-export default IssuePageFilter;
