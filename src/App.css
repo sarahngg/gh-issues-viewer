@@ -152,6 +152,10 @@
   flex: 1;
 }
 
+.issue-body-text-empty {
+  color: #CFD8DC;
+}
+
 .issue-labels-container {
   margin-top: 1em;;
 }

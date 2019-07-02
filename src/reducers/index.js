@@ -6,6 +6,8 @@ import {
 
 const initialState = {
   repoLink: '',
+  user: '',
+  repoName: '',
   filterSelected: 'all',
   filterStyle: {
     all: 'issue-page-filter-selected',
@@ -18,7 +20,7 @@ const initialState = {
     { key: 2, title: "Issue 2", body: "This is actually a pull request", isPullRequest: true, labels: ["bug"]},
     { key: 3, title: "This issue title is so long that I wonder if it should be fully displayed in this issue viewer", body: "The deets", isPullRequest: false, labels: ["bug"]},
     { key: 4, title: "Issue 4", body: "Help me", isPullRequest: false, labels: ["bug"]},
-    { key: 5, title: "Issue 5", body: "Another issue", isPullRequest: false, labels: ["bug"]},
+    { key: 5, title: "Issue 5", body: "", isPullRequest: false, labels: ["bug"]},
     { key: 6, title: "Issue 6", body: "Hi there, I notice you have a problem with the code in this repo. Can you please fix it? Please?", isPullRequest: false, labels: ["bug"]},
     { key: 7, title: "Issue 7 🐛", body: "Bug 🐞🐞", isPullRequest: false, labels: ["bug"]},
   ]
