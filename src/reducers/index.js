@@ -26,21 +26,18 @@ const initialState = {
   ]
 
 }
-
+var gh = require('parse-github-url');
 const rootReducer = (state = initialState, action) => {
   switch(action.type) {
     case SUBMIT_REPO_LINK: {
       // console.log('SUBMIT_REPO_LINK');
-      var parse = require('parse-github-repo-url')
-      parse(action.payload);
-      console.log(parse[0]);
-      console.log(parse[1]);
-      console.log(parse[2]);
+      // gh(action.payload);
+      console.log(action.payload);
       return {
           ...state,
           repoLink: action.payload, 
-          user: parse[0],
-          repoName: parse[1],
+          user: gh(action.payload).owner,
+          repoName: gh(action.payload).name,
       };
     }
     case SET_FILTER: {

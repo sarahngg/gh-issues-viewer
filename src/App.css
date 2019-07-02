@@ -24,13 +24,18 @@
   margin: auto;
   box-shadow: 0 4px 8px 0 rgba(136, 14, 79, 0.5), 0 6px 20px rgba(136, 14, 79, 0.5);
 }
+.repo-search-bar form {
+  flex: 1;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
 .repo-search-bar input{
   border: none;
   font-family: inherit;
   font-size: 1.125em;
   margin: auto;
-  margin-left: 0.5em;
-  flex-basis: 80%;
+  
+  width:100%;
   
 }
 ::placeholder {
