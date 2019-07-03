@@ -16,7 +16,7 @@
 }
 .repo-search-bar {
   padding: 0.5em;
-  min-width: 30em;
+  
   height: 2em;
   background-color: #FFFFFF;
   display: flex;
@@ -34,7 +34,6 @@
   font-family: inherit;
   font-size: 1.125em;
   margin: auto;
-  
   width:100%;
   
 }
@@ -55,14 +54,20 @@
   
 }
 
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 .issues-page-header {
   background-color: #E91E63;
   padding: 1.5em;
-  margin-bottom: 1em;
   display: flex;
-  align-items: center; 
+  align-items: center;
   flex-wrap: wrap;
   box-shadow: 0 4px 8px 0 rgba(136, 14, 79, 0.25), 0 6px 20px rgba(136, 14, 79, 0.25);
+  z-index: 10;
 }
 
 .issue-page-header-text {
@@ -72,9 +77,9 @@
   margin: auto;
   margin-left: 0;
 }
+
 .issue-page-header-text:after {
   flex: 1;
-
 }
 
 .issue-page-header-link {
@@ -88,15 +93,15 @@
 
 .issue-page-filter-container {
   display: flex;
-  margin-left: 1em;
-  margin-right: 1em;
+  padding: 1.5em;
   align-items: center;
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+  z-index: -1;
+  position: relative;
 }
 
 .issue-page-filter-container div {
-  
   margin-right: 1em;
-  font-weight: lighter;
   font-size: 0.825em;
 }
 
@@ -109,25 +114,31 @@
 
 .issue-page-filter-selected {
   color: #E91E63;
+  font-weight: normal;
 }
 
 .issue-page-filter-unselected {
   color: #607D8B;
+  font-weight: lighter;
 }
 
 .issues-container {
   margin: 0em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   --auto-grid-min-size: 20rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
-  grid-gap: 1em;
-  
+  grid-gap: 0em;
+  position: relative;
+  z-index: -10;
 }
 
 .issue-wrapper {
   padding: 1em;
   display: flex;
   flex-direction: column;
+  height: 15em;
 }
 
 .issue-title {
@@ -137,6 +148,7 @@
   background-color: #3F51B5;
   font-size: 1.125em;
   font-weight: normal;
+  line-height:1.25em;
 }
 
 .issue-details {
@@ -151,10 +163,12 @@
 
 .issue-body-text {
   color: #607D8B;
-  line-height: 1.25em;
+  line-height: 1.5em;
   font-weight: normal;
   font-size: inherit;
   flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .issue-body-text-empty {

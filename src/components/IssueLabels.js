@@ -5,9 +5,9 @@ class IssueLabels extends Component {
     const { labels } = this.props;
     const labelList = labels.map (label => {
       if (label !== {}) {
-          return(<div className="issue-label-wrapper">
+          return(<div key={label.id} className="issue-label-wrapper">
             <div className="issue-label-hole"/>
-            <div className="issue-label">{label}</div>
+            <div className="issue-label">{label.name}</div>
             </div>)
       } else {
           return(<div></div>)

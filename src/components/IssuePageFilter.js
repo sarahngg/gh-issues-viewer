@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import closeIcon from '../_assets/icons/close.svg';
 import { connect } from 'react-redux';
-import { closeIssueViewer } from '../actions';
+import { closeIssueViewer, setFilter } from '../actions';
 
 class IssuePageFilter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterSelected: 'all',
       filterStyle: {
         all: 'issue-page-filter-selected',
         open: 'issue-page-filter-unselected',
         closed: 'issue-page-filter-unselected',
-        pull: 'issue-page-filter-unselected',
+        pulls: 'issue-page-filter-unselected',
       }
     }
   }
@@ -24,59 +23,60 @@ class IssuePageFilter extends Component {
   handleClick = (e) => {
     console.log(e.target.getAttribute('id'));
     if (e.target.getAttribute('id') === 'all') {
-      this.setState(prevState => ({
-        ...prevState,
-        filterSelected: 'all',
+      this.props.setFilter('all');
+      console.log('set filter to all');
+      this.setState({
         filterStyle: {
           all: 'issue-page-filter-selected',
           open: 'issue-page-filter-unselected',
           closed: 'issue-page-filter-unselected',
-          pull: 'issue-page-filter-unselected',
+          pulls: 'issue-page-filter-unselected',
         }
-      }));
+      });
     } else if (e.target.getAttribute('id') === 'open') {
-      this.setState(prevState => ({
-        ...prevState,
-        filterSelected: 'open',
+      this.props.setFilter('open');
+      console.log('set filter to open');
+      this.setState({
         filterStyle: {
           all: 'issue-page-filter-unselected',
           open: 'issue-page-filter-selected',
           closed: 'issue-page-filter-unselected',
-          pull: 'issue-page-filter-unselected',
+          pulls: 'issue-page-filter-unselected',
         }
-      }));
+      });
     } else if (e.target.getAttribute('id') === 'closed') {
-      this.setState(prevState => ({
-        ...prevState,
-        filterSelected: 'closed',
+      this.props.setFilter('closed');
+      console.log('set filter to closed');
+      this.setState({
         filterStyle: {
           all: 'issue-page-filter-unselected',
           open: 'issue-page-filter-unselected',
           closed: 'issue-page-filter-selected',
-          pull: 'issue-page-filter-unselected',
+          pulls: 'issue-page-filter-unselected',
         }
-      }));
-    } else if (e.target.getAttribute('id') === 'pull') {
-      this.setState(prevState => ({
-        ...prevState,
-        filterSelected: 'pull',
+      });
+    } else if (e.target.getAttribute('id') === 'pulls') {
+      this.props.setFilter('pulls');
+      console.log('set filter to pulls');
+      this.setState({
         filterStyle: {
           all: 'issue-page-filter-unselected',
           open: 'issue-page-filter-unselected',
           closed: 'issue-page-filter-unselected',
-          pull: 'issue-page-filter-selected',
+          pulls: 'issue-page-filter-selected',
         }
-      }));
+      });
     } else {
-      this.setState(prevState => ({
-        ...prevState,
+      this.props.setFilter('all');
+      console.log('set filter to all');
+      this.setState({
         filterStyle: {
           all: 'issue-page-filter-unselected',
           open: 'issue-page-filter-unselected',
           closed: 'issue-page-filter-unselected',
-          pull: 'issue-page-filter-unselected',
+          pulls: 'issue-page-filter-unselected',
         }
-      }));
+      });
     }
   }
 
@@ -87,11 +87,15 @@ class IssuePageFilter extends Component {
         <div id="all" className={this.state.filterStyle.all}>All issues</div>
         <div id="open" className={this.state.filterStyle.open}>Open Issues</div>
         <div id="closed" className={this.state.filterStyle.closed}>Closed Issues</div>
-        <div id="pull" className={this.state.filterStyle.pull}>Pull Requests</div>
+        <div id="pulls" className={this.state.filterStyle.pulls}>Pull Requests</div>
         <img id="exit" src = {closeIcon} className="close-icon" onClick={this.handleCloseViewer} alt="Close issue viewer" />
       </div>
       )
   }
 }
-export default connect(null, {closeIssueViewer})(IssuePageFilter);
+
+const mapStateToProps = state => ({
+  filterSelected: state.filterSelected,
+});
+export default connect(mapStateToProps, {closeIssueViewer, setFilter})(IssuePageFilter);
 
