@@ -9,40 +9,32 @@ class IssueDisplayPage extends Component {
   componentDidMount() {
     const user = this.props.user;
     const repoName = this.props.repoName;
-    console.log('componentDidMount');
+    // console.log('componentDidMount');
     if (user !== null && repoName != null) {
-      if (this.props.filterSelected !== 'pulls') {
-        axios.get('https://api.github.com/repos/' + user + '/' + repoName + '/issues'+ '?state=' + this.props.filterSelected)
+        axios.get('https://api.github.com/repos/' + user + '/' + repoName + '/issues'+ '?state=all')
         .then(res => {
           this.props.loadIssues(res.data);
           console.log('filterSelected !== pulls');
-        })
-      } else {
-        axios.get('https://api.github.com/repos/' + user + '/' + repoName + '/pulls')
-        .then(res => {
-          this.props.loadIssues(res.data);
-          console.log('filterSelected === pulls')
-        })
-      }
+      })
+     }
     }
-  }
+  
   componentDidUpdate(prevProps) {
     if (this.props.filterSelected !== prevProps.filterSelected) {
-
-      console.log('componentDidUpdate');
+      // console.log('componentDidUpdate');
       const user = this.props.user;
       const repoName = this.props.repoName;
       if (this.props.filterSelected !== 'pulls') {
         axios.get('https://api.github.com/repos/' + user + '/' + repoName + '/issues'+ '?state=' + this.props.filterSelected)
         .then(res => {
           this.props.loadIssues(res.data);
-          console.log('filterSelected !== pulls');
+          // console.log('filterSelected ===' , this.props.filterSelected);
         })
       } else {
-        axios.get('https://api.github.com/repos/' + user + '/' + repoName + '/pulls')
+        axios.get('https://api.github.com/repos/' + user + '/' + repoName + '/pulls' + '?state=all')
         .then(res => {
           this.props.loadIssues(res.data);
-          console.log('filterSelected === pulls')
+          // console.log('filterSelected === pulls')
         })
       }
       
@@ -50,19 +42,19 @@ class IssueDisplayPage extends Component {
   }
   render() {
 
-    console.log('repoName', this.props.repoName);
-    console.log('user', this.props.user);
+    // console.log('repoName', this.props.repoName);
+    // console.log('user', this.props.user);
 
     let issueList = this.props.issues;
-    console.log('issueList', issueList);
-    console.log('issueList.length === 0', issueList.length === 0);
+    // console.log('issueList', issueList);
+    // console.log('issueList.length === 0', issueList.length === 0);
     if (issueList.length === 0) {
       issueList = <div>No issues!</div>
     } else {
       issueList = this.props.issues.map (issue => {
-        if (issue !== {}) {
+        if (issue !== null) {
             return(
-            <Issue key={issue.id} title={issue.title} body={issue.body} labels={issue.labels}/>
+            <Issue key={issue.id} state={issue.state} pullRequest={issue.pull_request} title={issue.title} body={issue.body} labels={issue.labels}/>
             )
         } else {
             return(
@@ -71,6 +63,67 @@ class IssueDisplayPage extends Component {
         }
       })
     }
+      // switch(this.props.filterSelected) {
+      // case 'closed': {
+      //   console.log('filtering closed issues');
+      //   issueList = this.props.issues.map (issue => {
+      //     if (issue !== null && issue.pull_request === undefined && issue.state === 'closed') {
+      //         return(
+      //         <Issue key={issue.id} state={issue.state} isPullRequest='false' title={issue.title} body={issue.body} labels={issue.labels}/>
+      //         )
+      //     } else {
+      //         return(
+      //         <div></div>
+      //         )
+      //     }
+      //   })
+      // }  
+      // break;
+      // case 'open': {
+      //   console.log('filtering open issues');
+      //   issueList = this.props.issues.map (issue => {
+      //     if (issue !== null && issue.pull_request === undefined && issue.state === 'open') {
+      //         return(
+      //         <Issue key={issue.id} state={issue.state} isPullRequest='false' title={issue.title} body={issue.body} labels={issue.labels}/>
+      //         )
+      //     } else {
+      //         return(
+      //         <div></div>
+      //         )
+      //     }
+      //   })
+      // }  
+      // break;
+      // case 'pulls': {
+      //   console.log('filtering pulls');
+      //   issueList = this.props.issues.map (issue => {
+      //     if (issue !== null && issue.pull_request !== undefined) {
+      //         return(
+      //         <Issue key={issue.id} state={issue.state} isPullRequest='true' title={issue.title} body={issue.body} labels={issue.labels}/>
+      //         )
+      //     } else {
+      //         return(
+      //         <div></div>
+      //         )
+      //     }
+      //   })
+      // }  
+      // break;
+      // default: {
+      //   issueList = this.props.issues.map (issue => {
+      //     if (issue !== null) {
+      //         return(
+      //         <Issue key={issue.id} state={issue.state} isPullRequest={issue.pull_request} title={issue.title} body={issue.body} labels={issue.labels}/>
+      //         )
+      //     } else {
+      //         return(
+      //         <div></div>
+      //         )
+      //     }
+      //   })
+      // }
+      // }
+    
 
     return(
     <div>

@@ -84,11 +84,13 @@ class IssuePageFilter extends Component {
   render() {
     return (
       <div onClick={this.handleClick} className="issue-page-filter-container">
-        <div id="all" className={this.state.filterStyle.all}>All issues</div>
-        <div id="open" className={this.state.filterStyle.open}>Open Issues</div>
-        <div id="closed" className={this.state.filterStyle.closed}>Closed Issues</div>
-        <div id="pulls" className={this.state.filterStyle.pulls}>Pull Requests</div>
-        <img id="exit" src = {closeIcon} className="close-icon" onClick={this.handleCloseViewer} alt="Close issue viewer" />
+        <button id="all" className={this.state.filterStyle.all}>All issues</button>
+        <button id="open" className={this.state.filterStyle.open}>Open Issues</button>
+        <button id="closed" className={this.state.filterStyle.closed}>Closed Issues</button>
+        <button id="pulls" className={this.state.filterStyle.pulls}>Pull Requests</button>
+        <button id="exit" onClick={this.handleCloseViewer} alt="Close issue viewer"> 
+          <img src = {closeIcon} className="close-icon" />
+        </button>
       </div>
       )
   }

@@ -3,7 +3,7 @@ import {
   SET_FILTER,
   CLOSE_ISSUE_VIEWER,
   LOAD_ISSUES,
-} from '../actions';
+  } from '../actions';
 
 const initialState = {
   repoLink: '',
@@ -61,10 +61,23 @@ const rootReducer = (state = initialState, action) => {
           issues: action.payload,
       };
     }
+  //   case FILTER_ISSUES: {
+  //     console.log('FILTER_ISSUES');
+  //     console.log(action.payload);
+  //     switch (state.filterSelected) {
+  //       case 'open':
+  //           //filter open issues that are not pull request
+  //     }
+      
+  //     return {
+  //         ...state,
+  //         filteredIssues: ,
+  //     };
+  //   }
     default:
         //console.log(action);
       return state;   
-  }
+ }
  
 };
 

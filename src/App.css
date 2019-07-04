@@ -100,16 +100,26 @@
   position: relative;
 }
 
-.issue-page-filter-container div {
+.issue-page-filter-container button {
   margin-right: 1em;
   font-size: 0.825em;
+  background: none;
+  font-family: inherit;
+  border: none;
+  display: inline-block;
+}
+.issue-page-filter-container button:hover {
+  color: #880E4F;
+  cursor: pointer;
 }
 
+#exit {
+  margin-left: auto;
+  margin-right: 0;
+}
 .close-icon {
   height: 1.25em;
   opacity: 0.25;
-  margin-left: auto;
-  margin-right: 0;
 }
 
 .issue-page-filter-selected {
@@ -134,14 +144,14 @@
   z-index: -10;
 }
 
-.issue-wrapper {
+.card-wrapper {
   padding: 1em;
   display: flex;
   flex-direction: column;
   height: 15em;
 }
 
-.issue-title {
+.card-title {
   padding: inherit;
   height: fit-content;
   color: #FFFFFF;
@@ -149,9 +159,29 @@
   font-size: 1.125em;
   font-weight: normal;
   line-height:1.25em;
+  display:flex;
+  flex-direction: row;
 }
 
-.issue-details {
+.card-title-text {
+  flex: 1;
+  margin:auto;
+}
+
+.svg-wrapper svg path{
+  fill: #CFD8DC;
+}
+
+.icon {
+  height: 1em;
+}
+
+.issue-icon {
+  margin-right: 0;
+  margin-left: 1em;
+}
+
+.card-details {
   font-size: 0.75em;
   background-color: #FFFFFF;
   padding: inherit;
@@ -161,19 +191,20 @@
   flex-direction: column;
 }
 
-.issue-body-text {
+.card-body-text {
   color: #607D8B;
   line-height: 1.5em;
   font-weight: normal;
   font-size: inherit;
   flex: 1;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.issue-body-text-empty {
+.card-body-text-empty {
   color: #CFD8DC;
 }
+
+
 
 .issue-labels-container {
   margin-top: 1em;;
@@ -186,7 +217,7 @@
 }
 .issue-label-hole {
   position:relative;
-  width:1.5em; 
+  width:1.25em; 
   height:100%;
   overflow:hidden;
   border-top-left-radius: 0.5em;
