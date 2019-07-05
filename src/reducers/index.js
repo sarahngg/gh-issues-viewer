@@ -8,9 +8,9 @@ import {
   } from '../actions';
 
 const initialState = {
-  repoLink: 'dfdf',
-  user: 'dustxd',
-  repoName: 'million-dollar-project',
+  repoLink: '',
+  user: '',
+  repoName: '',
   filterSelected: 'all',
   issues: [],
   page: 1,
