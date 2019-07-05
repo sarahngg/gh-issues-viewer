@@ -108,6 +108,26 @@
   border: none;
   display: inline-block;
 }
+
+@media only screen and (max-width: 400px) {
+  .issue-page-filter-container {
+    display: flex;
+    padding: 0.75em;
+    align-items: center;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+    z-index: -1;
+    position: relative;
+  }
+  .issue-page-filter-container button {
+    margin-right: 0.5em;
+    font-size: 0.75em;
+    background: none;
+    font-family: inherit;
+    border: none;
+    display: inline-block;
+  }
+}
+
 .issue-page-filter-container button:hover {
   color: #880E4F;
   cursor: pointer;
@@ -122,6 +142,8 @@
   opacity: 0.25;
 }
 
+
+
 .issue-page-filter-selected {
   color: #E91E63;
   font-weight: normal;
@@ -130,6 +152,23 @@
 .issue-page-filter-unselected {
   color: #607D8B;
   font-weight: lighter;
+}
+
+.pagination {
+  text-align: center;
+  margin: 2em;
+  font-size: 0.75em;
+  padding: auto;
+  color: #607D8B;
+}
+
+.pagination button{
+  width: 6em;
+  height: 3em;
+  border: none;
+  font-weight: bold;
+  background: none;
+  color: inherit;
 }
 
 .issues-container {
@@ -177,8 +216,8 @@
 }
 
 .issue-icon {
-  margin-right: 0;
-  margin-left: 1em;
+  margin-right: auto;
+  margin-left: 0.5em;
 }
 
 .card-details {
@@ -245,7 +284,71 @@
   font-size: 0.875em;
   line-height: 1.825em;
 }
-.no-issues {
+.issue-page-display-message {
+  text-align: center;
+  margin-top: auto;
+  color: #607D8B;
+  line-height: 1.5em;
+}
+
+.min-height-set-wrapper {
+  min-height: 70vh;
+}
+/* loader class created by https://projects.lukehaas.me/css-loaders/ */
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: #CFDBDC;
+  font-size: 10px;
+  margin: 80px auto;
   position: relative;
-  padding: 1em;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
 }

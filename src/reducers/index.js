@@ -3,19 +3,38 @@ import {
   SET_FILTER,
   CLOSE_ISSUE_VIEWER,
   LOAD_ISSUES,
+  NEXT_PAGE,
+  PREVIOUS_PAGE,
   } from '../actions';
 
 const initialState = {
-  repoLink: '',
-  user: '',
-  repoName: '',
+  repoLink: 'dfdf',
+  user: 'dustxd',
+  repoName: 'million-dollar-project',
   filterSelected: 'all',
-  issues: []
-
+  issues: [],
+  page: 1,
 }
 var gh = require('parse-github-url');
 const rootReducer = (state = initialState, action) => {
   switch(action.type) {
+    case NEXT_PAGE: {
+      const newPage = state.page + 1; 
+      return {
+          ...state,
+          page: newPage,
+      };
+    }
+    case PREVIOUS_PAGE: {
+      let newPage = state.page;
+      if (state.page > 1) {
+        newPage = state.page - 1;
+      } 
+      return {
+          ...state,
+          page: newPage,
+      };
+    }
     case SUBMIT_REPO_LINK: {
       return {
           ...state,
@@ -28,6 +47,7 @@ const rootReducer = (state = initialState, action) => {
       return {
           ...state,
           filterSelected: action.payload,
+          page: 1,
       };
     }
     case CLOSE_ISSUE_VIEWER: {
@@ -36,6 +56,7 @@ const rootReducer = (state = initialState, action) => {
           repoLink: '', 
           user: '',
           repoName: '',
+          page: 1,
           issues: [],
       };
     }

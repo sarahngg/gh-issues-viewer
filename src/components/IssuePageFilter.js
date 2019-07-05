@@ -83,7 +83,7 @@ class IssuePageFilter extends Component {
   render() {
     return (
       <div onClick={this.handleClick} className='issue-page-filter-container'>
-        <button id='all' className={this.state.filterStyle.all}>All issues</button>
+        <button id='all' className={this.state.filterStyle.all}>All Issues</button>
         <button id='open' className={this.state.filterStyle.open}>Open Issues</button>
         <button id='closed' className={this.state.filterStyle.closed}>Closed Issues</button>
         <button id='pulls' className={this.state.filterStyle.pulls}>Pull Requests</button>

@@ -16,8 +16,12 @@
       
   }
   handleSubmit =(e)=> {
-    e.preventDefault(); 
-    this.props.submitRepoLink(this.state.repoLink);
+    e.preventDefault();
+    if (this.state.repoLink !== '') {
+      this.props.submitRepoLink(this.state.repoLink);
+    } else {
+      alert('Please paste a link to a GitHub repo.');
+    }
   }
    render() {
      return <div className='repo-search-bar'>
