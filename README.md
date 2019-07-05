@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GitHub Issue Explorer
 
-## Available Scripts
+Displays issues and pull requests of a GitHub repository.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1. Ensure you have permission to access this project.
 
-### `npm test`
+2. Ensure you have an adequate version of [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node](http://nodejs.org/), [npm](https://npmjs.org/) (included in Node). This app was developed with the following tool versions.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+$ node -v
+v10.16.0
 
-### `npm run build`
+$ npm -v
+6.9.2
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+$ git --version
+git version 2.20.1.windows.1
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Installing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To install, type the following commands.
 
-### `npm run eject`
+```
+$ git clone https://github.com/axiomzen/cc_SarahNg_IssuesExplorerFE.git
+$ cd cc_SarahNg_IssuesExplorerFE\issues-explorer
+$ npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Running
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Navigate to the `issues-explorer` folder of the project and run the following command to run the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+$ npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The app should be running shortly in your default web browser at `localhost:3000`. (Microsoft Edge not supported.)
 
-## Learn More
+## User guide
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### How to use the GitHub Issue Explorer
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Paste a GitHub repo URL in the search bar, then press enter.
 
-### Code Splitting
+2. View the results page that displays all (open, closed, pull requests) issues from the GitHub repo provided.
+   * All issues displays all open, closed, and pull requests
+3. Select different filters to filter issues (all, open, closed, pull requests). Note that a maximum of 30 items are displayed by default.
+   * Open issues displays open issues and open pull requests
+   * Closed issues displays closed issues and closed pull requests
+   * Pull requests displays open and closed pull requests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+4. To view issues from a different GitHub repository, click the ‘X’ at the top right corner to exit the current view. Repeat step 1 with a new repository URL.
 
-### Analyzing the Bundle Size
+### Issue Icon
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Issues types are indicated by the icon on each issue. While all pull requests are issues to GitHub, not all issues are pull requests.
 
-### Making a Progressive Web App
+* All pull requests (open and closed) are indicated by the [pull request icon](https://octicons.github.com/icon/git-pull-request/)
+* Open issues are indicated by the absence of an icon (excluding open pull requests)
+* Closed issues are indicated by the  [issue closed icon](https://octicons.github.com/icon/issue-closed/) (excluding closed pull requests)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Built With
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [React](https://reactjs.org/) - Interactive UI
+- [npm](https://www.npmjs.com/) - Package management
+- [Redux](https://redux.js.org/) - State management

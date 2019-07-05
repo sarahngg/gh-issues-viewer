@@ -13,12 +13,11 @@
       this.setState({
         repoLink: e.target.value
       });
-      // console.log('handleFormChange', this.state.repoLink);
+      
   }
   handleSubmit =(e)=> {
     e.preventDefault(); 
     this.props.submitRepoLink(this.state.repoLink);
-    // console.log('Repo link submitted', this.state.repoLink);
   }
    render() {
      return <div className='repo-search-bar'>

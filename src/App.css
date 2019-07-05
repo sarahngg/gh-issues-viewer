@@ -204,10 +204,8 @@
   color: #CFD8DC;
 }
 
-
-
 .issue-labels-container {
-  margin-top: 1em;;
+  margin-top: 0.75em;
 }
 
 .issue-label-wrapper {
@@ -246,4 +244,8 @@
   font-weight: lighter;
   font-size: 0.875em;
   line-height: 1.825em;
+}
+.no-issues {
+  position: relative;
+  padding: 1em;
 }
