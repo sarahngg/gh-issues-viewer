@@ -1,6 +1,7 @@
 # GitHub Issues Explorer
 
 Displays issues and pull requests of a GitHub repository.
+👉[Demo](https://sarahngg.github.io/gh-issues-viewer/) (You can use `https://github.com/facebook/create-react-app` as the GitHub URL)
 
 ## Built With
 
