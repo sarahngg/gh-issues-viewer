@@ -1,4 +1,4 @@
-# GitHub Issues Explorer
+# GitHub Issues Viewer
 
 Displays issues and pull requests of a GitHub repository.
 
