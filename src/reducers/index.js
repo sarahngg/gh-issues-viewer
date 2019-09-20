@@ -5,7 +5,7 @@ import {
   LOAD_ISSUES,
   NEXT_PAGE,
   PREVIOUS_PAGE,
-  } from '../actions';
+  } from '../constants/constants';
 
 const initialState = {
   repoLink: '',
