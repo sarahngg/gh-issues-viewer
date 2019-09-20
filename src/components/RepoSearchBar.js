@@ -1,14 +1,11 @@
  import React, { useState } from 'react';
- import { useSelector, useDispatch } from 'react-redux';
+ import { useDispatch } from 'react-redux';
  import { submitRepoLink } from '../actions';
  import icon from '../_assets/icons/search.svg';
  import '../App.css';
  
  function RepoSearchBar() {
   const [repoLink, setRepoLink] = useState('');
-
-  // get repoLink from state
-  const stateRepoLink = useSelector(state => state.repoLink);
 
   // get dispatch
   const dispatch = useDispatch();
