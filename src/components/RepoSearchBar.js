@@ -17,7 +17,7 @@
   const handleSubmit =(e)=> {
     e.preventDefault();
     if (repoLink !== '') {
-      dispatch(submitRepoLink(repoLink))
+      dispatch(submitRepoLink(repoLink));
       //this.props.submitRepoLink(repoLink);
     } else {
       alert('Please paste a link to a GitHub repo.');
@@ -41,7 +41,4 @@
 
  }
 
-// const mapStateToProps = state => ({
-//   repoLink: state.repoLink,
-// });
  export default RepoSearchBar;
