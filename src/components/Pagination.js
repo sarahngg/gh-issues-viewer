@@ -1,36 +1,32 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { nextPage, previousPage } from '../actions';
 
-class Pagination extends Component {
-  
-  handleClick = (e) => {
+function Pagination() {
+  const dispatch = useDispatch();
+  const currentPage = useSelector(state => state.page);
+
+  const handleClick = (e) => {
     switch (e.target.getAttribute('id')) {
       case 'prev':
-        this.props.previousPage();
+        dispatch(previousPage());
         break;
       case 'next':
-        this.props.nextPage();
+        dispatch(nextPage());
         break;
       default:
         break;
     }
   }
 
-
-  render() {
-    return (
-      <div className='pagination' onClick={this.handleClick}>
-          <button id='prev'>&lt;</button>
-          Page {this.props.page}
-          <button id='next'>&gt;</button>
-      </div>
-      )
-    }
+  return(
+    <div className='pagination' onClick={handleClick}>
+      <button id='prev'>&lt;</button>
+         Page {currentPage}
+      <button id='next'>&gt;</button>
+    </div>
+  )
 }
 
-const mapStateToProps = state => ({
-  page: state.page,
-});
-export default connect(mapStateToProps, {nextPage, previousPage})(Pagination);
+export default Pagination;
 
