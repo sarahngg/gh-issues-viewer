@@ -4,6 +4,7 @@ export const CLOSE_ISSUE_VIEWER = 'CLOSE_ISSUE_VIEWER';
 export const LOAD_ISSUES = 'LOAD_ISSUES';
 export const NEXT_PAGE = 'NEXT_PAGE';
 export const PREVIOUS_PAGE = 'PREVIOUS_PAGE';
+export const NO_DESCRIPTION_TEXT = 'No description provided.';
 export const FILTERS = [{
     type: 'all',
     title: 'All Issues',
