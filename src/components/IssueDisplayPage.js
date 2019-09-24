@@ -5,6 +5,7 @@ import IssuePageFilter from './IssuePageFilter';
 import Pagination from './Pagination'
 import { loadIssues } from '../actions';
 import axios from 'axios';
+import { APP_NAME } from '../constants/constants';
 
 class IssueDisplayPage extends Component {
   constructor(props) {
@@ -113,7 +114,7 @@ class IssueDisplayPage extends Component {
     <div>
       <div className='sticky-top'>
       <div className='issues-page-header'>
-        <div className='issue-page-header-text'>GitHub Issue Viewer</div>
+        <div className='issue-page-header-text'>{ APP_NAME }</div>
         <div className='issue-page-header-link'>{this.props.repoLink}</div>
       </div>
       <IssuePageFilter />
