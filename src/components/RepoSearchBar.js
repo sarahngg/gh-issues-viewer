@@ -1,47 +1,44 @@
- import React, { Component } from 'react';
- import { connect } from 'react-redux';
+ import React, { useState } from 'react';
+ import { useDispatch } from 'react-redux';
  import { submitRepoLink } from '../actions';
  import icon from '../_assets/icons/search.svg';
  import '../App.css';
  
- class RepoSearchBar extends Component {
-  constructor() {
-    super();
-    this.state = {repoLink: ''};
+ function RepoSearchBar() {
+  const [repoLink, setRepoLink] = useState('');
+
+  // get dispatch
+  const dispatch = useDispatch();
+  
+  const handleFormChange =(e)=> {
+    setRepoLink(e.target.value);
   }
-  handleFormChange =(e)=> {
-      this.setState({
-        repoLink: e.target.value
-      });
-      
-  }
-  handleSubmit =(e)=> {
+
+  const handleSubmit =(e)=> {
     e.preventDefault();
-    if (this.state.repoLink !== '') {
-      this.props.submitRepoLink(this.state.repoLink);
+    if (repoLink !== '') {
+      dispatch(submitRepoLink(repoLink));
+      //this.props.submitRepoLink(repoLink);
     } else {
       alert('Please paste a link to a GitHub repo.');
     }
   }
-   render() {
-     return <div className='repo-search-bar'>
-  
-       <img src = {icon} className='search-icon' alt='Search icon' />
-       <form  
-          onSubmit = {this.handleSubmit}>
-       <input 
-          type='text' 
-          onChange={this.handleFormChange}
-          value={this.state.repoLink}
-          className='gitHubLink' 
-          placeholder='Paste a link to a GitHub repo!'/>
-          </form>
-    
-       </div>
-   }
+ 
+  return (
+    <div className='repo-search-bar'>
+      <img src = {icon} className='search-icon' alt='Search icon' />
+      <form  
+        onSubmit = {handleSubmit}>
+      <input 
+        type='text' 
+        onChange={handleFormChange}
+        value={repoLink}
+        className='gitHubLink' 
+        placeholder='Paste a link to a GitHub repo!'/>
+        </form>
+    </div>
+  )
+
  }
 
-const mapStateToProps = state => ({
-  repoLink: state.repoLink,
-});
- export default connect(mapStateToProps, {submitRepoLink})(RepoSearchBar);
+ export default RepoSearchBar;
