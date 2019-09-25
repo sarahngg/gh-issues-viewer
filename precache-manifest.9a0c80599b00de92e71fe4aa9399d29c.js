@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6cac3c6c5fa3557b0a98b302979a6991",
+    "revision": "3b49465019e025e16b45db01e69ce160",
     "url": "/gh-issues-viewer/index.html"
   },
   {
-    "revision": "85684080169707b5bf71",
-    "url": "/gh-issues-viewer/static/css/main.7c04d26b.chunk.css"
+    "revision": "f08d66cbff749d5c5bba",
+    "url": "/gh-issues-viewer/static/css/main.9b48d331.chunk.css"
   },
   {
     "revision": "90d2b51aca1f68a5bc09",
     "url": "/gh-issues-viewer/static/js/2.e8e72ac7.chunk.js"
   },
   {
-    "revision": "85684080169707b5bf71",
-    "url": "/gh-issues-viewer/static/js/main.c3dd6b62.chunk.js"
+    "revision": "f08d66cbff749d5c5bba",
+    "url": "/gh-issues-viewer/static/js/main.54cdc490.chunk.js"
   },
   {
     "revision": "a02653754bbe852ccae1",
