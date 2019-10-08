@@ -16,7 +16,7 @@
 
   const handleSubmit =(e)=> {
     e.preventDefault();
-    if (repoLink !== '') {
+    if (repoLink &&  repoLink.replace(/\s/g, '')) {
       dispatch(submitRepoLink(repoLink));
       //this.props.submitRepoLink(repoLink);
     } else {
