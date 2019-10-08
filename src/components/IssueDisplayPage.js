@@ -19,7 +19,7 @@ class IssueDisplayPage extends Component {
     const user = this.props.user;
     const repoName = this.props.repoName;
     if (user !== null && repoName != null) {
-      axios.get('https://api.github.com/repos/' + user + '/' + repoName + '/issues?state=all')
+      axios.get(`https://api.github.com/repos/${user}/${repoName}/issues?state=all`)
       .then(res => {
         this.props.loadIssues(res.data);
         this.setState((prevState) => ({
@@ -55,11 +55,9 @@ class IssueDisplayPage extends Component {
       const repoName = this.props.repoName;
       let url; 
       if (this.props.filterSelected !== 'pulls') {
-        url = 'https://api.github.com/repos/' + user + '/' + repoName + '/issues'+ 
-        '?page=' + this.props.page + '&state=' + this.props.filterSelected
+        url = `https://api.github.com/repos/${user}/${repoName}/issues?page=${this.props.page}&state=${this.props.filterSelected}`
       } else {
-        url = 'https://api.github.com/repos/' + user + '/' + repoName + '/pulls' + 
-        '?page=' + this.props.page + '&state=all'
+        url = `https://api.github.com/repos/${user}/${repoName}/pulls?page=${this.props.page}&state=all`
       }
       axios.get(url)
       .then(res => {
